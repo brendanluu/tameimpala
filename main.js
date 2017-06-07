@@ -2,7 +2,13 @@ var audioPlayer = document.querySelector('.audio-player');
 
 var toggle = document.querySelector('.toggle');
 
+var body = document.querySelector('body');
 
+var purple = document.querySelector('.purple');
+
+body.onclick = function(){
+  purple.classList.add("active");
+}
 // audioPlayer.autoplay = true;
 toggle.onclick = function(){
   audioToggle();
@@ -22,14 +28,28 @@ function audioToggle(){
 
 function diffImage(img)
   {
-    if(img.src.match(/blank/))
+    if(img.src.match("img/muted.png"))
     {
       console.log('black');
-      img.src = "http://www.tutorialsscripts.com/free-icons/alphabet-characters/upper-case-letter/B-icon/black-upper-case-letter-character-B-icon-32-x-32.jpg";
+      img.src = "img/unmuted.png";
     }
     else
     {
       console.log('blank');
-      img.src = "http://www.vaddio.com/images/doc_icon_blank.jpg";
+      img.src = "img/muted.png";
     }
   }
+
+
+  // var purple = document.querySelector('.purple');
+  //
+  // var eye = document.querySelector('.eye');
+  //
+  // eye.onclick = function(){
+  //   fadeToggle();
+  // }
+  //
+  // function fadeToggle(){
+  //   console.log('fading');
+  //   purple.classList.toggle('active');
+  // }

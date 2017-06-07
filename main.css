@@ -55,7 +55,11 @@ h3{
 }
 
 .glow{
-	max-width: 190px;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	display: inline-block;
+	z-index: 40000;
 }
 
 .maze{
@@ -65,15 +69,12 @@ h3{
 	display: inline-block;
 }
 
-.eye{
-	max-width: 190px;
-}
-
 .bg{
 	width: 100%;
 	height: 100vh;
 	position: absolute;
 	display: block;
+	background-color: #242226;
 }
 
 .bgtablet{
@@ -140,7 +141,7 @@ h3{
 .toggle{
 	width: 20px;
 	height: 20px;
-	z-index: 200;
+	z-index: 1000000000000000;
 	position: absolute;
 
 }
@@ -149,7 +150,7 @@ h3{
 #path5 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 3s linear alternate infinite;
+  animation: dash 8s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -158,7 +159,7 @@ h3{
 #path4 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 5.5s linear alternate infinite;
+  animation: dash 15s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -176,7 +177,7 @@ h3{
 #path3 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 4.5s linear alternate infinite;
+  animation: dash 13s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -194,7 +195,7 @@ h3{
 #path2 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 5.5s linear alternate infinite;
+  animation: dash 15s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -212,7 +213,7 @@ h3{
 #path1 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 5.5s linear alternate infinite;
+  animation: dash 16s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -244,14 +245,38 @@ h3{
 			transform-origin: 50% 50%;
 			opacity: 1;
 
+
 }
 
-#eye1:hover{
+
+@-webkit-keyframes rumble {
+    0% {
+        -webkit-transform: scale(1) rotate(2deg);
+    }
+    25% {
+        -webkit-transform: scale(1) rotate(-2deg);
+    }
+    50% {
+        -webkit-transform: scale(1) rotate(2deg);
+    }
+    75% {
+        -webkit-transform: scale(1) rotate(-2deg);
+    }
+    100% {
+        -webkit-transform: scale(1) rotate(2deg);
+    }
+}
+
+/*#eye1:active{
 
 		    transform: scale(10);
 				opacity: 0;
+
 	}
-}
+}*/
+
+
+
 
 .st1{
 	fill: red;
@@ -264,59 +289,84 @@ h3{
 
 #glow{
 	filter: url(#blurMe);
-	animation: flicker 5s ease-in-out alternate infinite;
+	animation: flicker 2s ease-in-out alternate infinite;
 
 }
 
-#purple{
+.purple{
 	width: 100%;
 	height: 100vh;
 	position: absolute;
 	display: block;
 	z-index: 1000;
-	background-color: red;
+	background-color: #674C76;
+	opacity: 100;
+	cursor: pointer;
 }
+
+.purple.active{
+	opacity: 1;
+	animation-duration: 1s;
+	animation-name: fade;
+	animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade {
+	100%{
+		opacity: 0;
+	}
+}
+
+
+}
+
+
+
 
 #blackandwhite{
 			position: relative;
+			width: 100%;
 	    z-index: -100;
 }
 
-
-
-/*@keyframes flicker {
-  0% {
-    opacity: 0.1;
-  4% {
-    opacity: 0.3;
-  19% {
-    opacity: 0.7;
-  21% {
-    opacity: 0.5;
-  23% {
-    opacity: 0.4;
-  37% {
-    opacity: 0.1;
-  40% {
-    opacity: 0.7;
-  43% {
-    opacity: 0.1;
-  55% {
-    opacity: 0.4;
-  58% {
-    opacity: 0.1;
-  61% {
-    opacity: 0.4;
-  80% {
-    opacity: 0.6;
-  83% {
-    opacity: 0.4;
-  87% {
-    opacity: 0.3;
-  100% {
-    opacity: 0.2;
+.eye{
+	width: 100%;
+	height: 100vh;
+	display: inline-block;
+	position: absolute;
+	z-index: 4000000;
 }
-}*/
+
+.eye, .maze, .glow{
+	pointer-events: none;
+}
+
+
+
+
+
+
+@keyframes flicker {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; }
+}
+
+#frontGradient{
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+  display: inline-block;
+  position: absolute;
+	background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 55%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 55%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 55%,rgba(0,0,0,1) 100%);
+}
+
+
 
 
 
@@ -369,5 +419,20 @@ h2{
 
 .bgtablet{
 	display: none;
+}
+.btn {
+	margin-left: auto;
+	margin-right: auto;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+	width: 300px;
+	position: absolute;
+left: 0;
+right: 0;
+margin-bottom: 5vh;
+	z-index: 101;
+	display: block;
 }
 }
