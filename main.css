@@ -25,7 +25,12 @@
 
 /*MOBILE*/
 
-
+a {
+	position: relative;
+	z-index: 100000000000000000;
+	color: white;
+	padding: 10px 20px 10px 20px;
+}
 
 body {
   font-family: 'MicrogrammaDBolExt';
@@ -34,6 +39,9 @@ body {
   color: white;
   margin: 0;
 	display: block;
+	cursor: pointer;
+	overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 h1{
@@ -88,7 +96,6 @@ h3{
 	background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
 	background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
 	background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 
@@ -127,8 +134,7 @@ h3{
   border-radius: 0px;
   color: #ffffff;
   font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+  padding: 30px 60px 30px 60px;
 	text-align: center;
 	bottom: 0;
 	width: 100%;
@@ -150,7 +156,7 @@ h3{
 #path5 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 8s linear alternate infinite;
+  animation: dash 6s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -159,7 +165,7 @@ h3{
 #path4 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 15s linear alternate infinite;
+  animation: dash 9s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -177,7 +183,7 @@ h3{
 #path3 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 13s linear alternate infinite;
+  animation: dash 8s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -195,7 +201,7 @@ h3{
 #path2 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 15s linear alternate infinite;
+  animation: dash 9s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -213,7 +219,7 @@ h3{
 #path1 {
 			stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 16s linear alternate infinite;
+  animation: dash 10s linear alternate infinite;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 
@@ -228,7 +234,7 @@ h3{
   }
 }
 
-	}
+}
 
 @keyframes dash {
   from {
@@ -267,13 +273,7 @@ h3{
     }
 }
 
-/*#eye1:active{
 
-		    transform: scale(10);
-				opacity: 0;
-
-	}
-}*/
 
 
 
@@ -301,15 +301,15 @@ h3{
 	z-index: 1000;
 	background-color: #674C76;
 	opacity: 100;
-	cursor: pointer;
 }
 
 .purple.active{
 	opacity: 1;
-	animation-duration: 1s;
+	animation-duration: .7s;
 	animation-name: fade;
 	animation-direction: normal;
   animation-fill-mode: forwards;
+	pointer-events: none;
 }
 
 @keyframes fade {
@@ -318,8 +318,6 @@ h3{
 	}
 }
 
-
-}
 
 
 
@@ -336,7 +334,15 @@ h3{
 	display: inline-block;
 	position: absolute;
 	z-index: 4000000;
+	transition: all .2s ease-in-out;
 }
+
+.eye.active{
+
+		    transform: scale(10);
+				opacity: 0;
+
+	}
 
 .eye, .maze, .glow{
 	pointer-events: none;
@@ -425,9 +431,8 @@ h2{
 	margin-right: auto;
   color: #ffffff;
   font-size: 20px;
-  padding: 10px 20px 10px 20px;
   text-decoration: none;
-	width: 300px;
+	width: 350px;
 	position: absolute;
 left: 0;
 right: 0;

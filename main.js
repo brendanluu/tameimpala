@@ -6,8 +6,12 @@ var body = document.querySelector('body');
 
 var purple = document.querySelector('.purple');
 
+var eye = document.querySelector('.eye');
+
+
 body.onclick = function(){
   purple.classList.add("active");
+  eye.classList.add("active");
 }
 // audioPlayer.autoplay = true;
 toggle.onclick = function(){
